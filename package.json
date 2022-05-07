@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "npm run clean && npx tsc && npm run copy",
+    "clean": "rm -rf ./build",
+    "copy": "cp yahtzee/features/*.feature ./build/features/ && cp -r yahtzee/html/ build",
+
+    "cucumber": "npm run build && npx cucumber-js build/features"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.2.0",
+    "@tsconfig/recommended": "^1.0.1",
+    "typescript": "^4.6.4"
+  }
+}
