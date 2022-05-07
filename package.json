@@ -1,7 +1,9 @@
 {
   "scripts": {
+    "deploy": "npm run dist && vercel",
+    "dist": "npm run build && mkdir dist && cp -r build/*.js dist/ && cp -r build/*.html dist/",
     "build": "npm run clean && npx tsc && npm run copy",
-    "clean": "rm -rf ./build",
+    "clean": "rm -rf ./build && rm -rf ./dist",
     "copy": "cp yahtzee/features/*.feature ./build/features/ && cp -r yahtzee/html/ build",
     "cucumber": "npm run build && npx cucumber-js build/features",
     "postinstall": "selenium-standalone install"
@@ -9,6 +11,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^8.2.0",
     "@tsconfig/recommended": "^1.0.1",
+    "@types/selenium-standalone": "^7.0.1",
     "@types/selenium-webdriver": "^4.0.19",
     "selenium-standalone": "^8.1.3",
     "selenium-webdriver": "^4.1.2",
