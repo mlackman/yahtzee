@@ -3,10 +3,18 @@ window.addEventListener('load', () => {
 });
 
 function initApplication() {
-  const startButton = getElementById('start-game-button');
-  startButton.addEventListener('click', () => {
+  showViewStartGame();
+}
+
+function showViewStartGame() {
+  clearView();
+  const appContainer = getElementById(yahtzeeAppId);
+  const startGameButton = createButton('start-game-button', 'Start game');
+
+  startGameButton.addEventListener('click', () => {
     showViewThrowDices();
   });
+  appContainer.appendChild(startGameButton);
 }
 
 function showViewThrowDices() {
